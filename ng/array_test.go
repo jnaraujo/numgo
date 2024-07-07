@@ -90,3 +90,10 @@ func TestArrayConcatenationWithDifferentTypes(t *testing.T) {
 	got := Concatenate(arr1, arr2)
 	assert.Equal(t, expected, []float64(got))
 }
+func TestArraySum(t *testing.T) {
+	expected := []float64{-10, 5.5, 20}
+	arr1 := NewArray[float64](10, 2, 10)
+	arr2 := NewArray(-20, 3.5, 10)
+	got := Sum(arr1, arr2)
+	assert.Equal(t, expected, []float64(got))
+}

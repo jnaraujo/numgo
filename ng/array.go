@@ -50,3 +50,12 @@ func Sort[T number](arr Array[T]) Array[T] {
 func Concatenate[T number](arr1, arr2 Array[T]) Array[T] {
 	return append(arr1, arr2...)
 }
+
+func Sum[T number](arr1, arr2 Array[T]) Array[T] {
+	internal.Assert(len(arr1) == len(arr2), "arrays must have the same length")
+	arr := make(Array[T], len(arr1))
+	for i := 0; i < len(arr); i++ {
+		arr[i] = arr1[i] + arr2[i]
+	}
+	return arr
+}
