@@ -81,6 +81,14 @@ func (arr Array[T]) Power(n float64) Array[T] {
 	return array
 }
 
+func (arr Array[T]) Mean() T {
+	sum := T(0)
+	for _, el := range arr {
+		sum += el
+	}
+	return sum / T(len(arr))
+}
+
 func (arr Array[T]) Multiply(other Array[T]) Array[T] {
 	internal.Assert(len(arr) == len(other), "arrays must have the same length")
 	array := make(Array[T], len(arr))

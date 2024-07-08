@@ -133,3 +133,9 @@ func TestArraySub(t *testing.T) {
 	arr1 := NewArray(4, 5, 6)
 	assert.Equal(t, expected, arr1.Sub(NewArray(3, 3, 3)))
 }
+
+func TestArrayMean(t *testing.T) {
+	expected := 3.2
+	arr1 := NewArray(5, 6.6, -2)
+	assert.InDelta(t, expected, arr1.Mean(), 0.1)
+}
