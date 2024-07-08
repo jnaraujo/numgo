@@ -2,6 +2,7 @@ package ng
 
 import (
 	"fmt"
+	"math"
 	"slices"
 	"strings"
 
@@ -61,6 +62,24 @@ func (arr Array[T]) Sum(other Array[T]) Array[T] {
 		array[i] = arr[i] + other[i]
 	}
 	return array
+}
+
+func (arr Array[T]) Sub(other Array[T]) Array[T] {
+	internal.Assert(len(arr) == len(other), "arrays must have the same length")
+	array := make(Array[T], len(arr))
+	for i := 0; i < len(array); i++ {
+		array[i] = arr[i] - other[i]
+	}
+	return array
+}
+
+func (arr Array[T]) Power(n float64) Array[T] {
+	array := make(Array[T], len(arr))
+	for i := 0; i < len(array); i++ {
+		array[i] = T(math.Pow(float64(arr[i]), n))
+	}
+	return array
+
 }
 
 func (arr Array[T]) Multiply(other Array[T]) Array[T] {

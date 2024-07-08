@@ -115,3 +115,21 @@ func TestArrayDot(t *testing.T) {
 	arr2 := NewArray(4, -2, -1)
 	assert.Equal(t, expected, arr1.Dot(arr2))
 }
+
+func TestArrayPower(t *testing.T) {
+	expected := NewArray(1, 8, 27)
+	arr1 := NewArray(1, 2, 3)
+	assert.Equal(t, expected, arr1.Power(3))
+}
+
+func TestArrayPowerWithFloat(t *testing.T) {
+	expected := NewArray(1, 4, 9)
+	arr1 := NewArray(1, 2, 3)
+	assert.Equal(t, expected, arr1.Power(2))
+}
+
+func TestArraySub(t *testing.T) {
+	expected := NewArray(1, 2, 3)
+	arr1 := NewArray(4, 5, 6)
+	assert.Equal(t, expected, arr1.Sub(NewArray(3, 3, 3)))
+}
