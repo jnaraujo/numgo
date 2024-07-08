@@ -97,3 +97,11 @@ func TestArraySum(t *testing.T) {
 	got := Sum(arr1, arr2)
 	assert.Equal(t, expected, []float64(got))
 }
+
+func TestArrayMultiplyScalar(t *testing.T) {
+	expected := []float64{-35, 19.25, 70}
+	arr := NewArray(-10, 5.5, 20)
+	got := MultiplyScalar(arr, 3.5)
+	assert.NotEqual(t, arr, []float64(expected))
+	assert.Equal(t, expected, []float64(got))
+}

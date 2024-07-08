@@ -59,3 +59,11 @@ func Sum[T number](arr1, arr2 Array[T]) Array[T] {
 	}
 	return arr
 }
+
+func MultiplyScalar[T number](arr Array[T], scalar T) Array[T] {
+	arr = slices.Clone(arr)
+	for i := range arr {
+		arr[i] *= scalar
+	}
+	return arr
+}
