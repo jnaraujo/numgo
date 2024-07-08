@@ -1,8 +1,10 @@
 package ng
 
 import (
+	"fmt"
 	"numgo/internal"
 	"slices"
+	"strings"
 )
 
 type Array[T number] []T
@@ -75,4 +77,15 @@ func (arr Array[T]) MultiplyScalar(scalar T) Array[T] {
 		arr[i] *= scalar
 	}
 	return arr
+}
+
+func (arr Array[T]) String() string {
+	var s strings.Builder
+	for i, el := range arr {
+		s.WriteString(fmt.Sprintf("%v", el))
+		if i != len(arr)-1 {
+			s.WriteString(", ")
+		}
+	}
+	return s.String()
 }

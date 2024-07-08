@@ -102,3 +102,9 @@ func TestArrayMultiply(t *testing.T) {
 	arr1 := NewArray(-10, 5.5, 20)
 	assert.Equal(t, expected, arr1.Multiply(NewArray[float64](20, 2, 5)))
 }
+
+func TestArrayString(t *testing.T) {
+	expected := "-10, 5.5, 20"
+	arr1 := NewArray(-10, 5.5, 20)
+	assert.Equal(t, expected, arr1.String())
+}

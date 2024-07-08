@@ -1,5 +1,10 @@
 package ng
 
+import (
+	"fmt"
+	"strings"
+)
+
 type Matrix[T number] []Array[T]
 
 func NewMatrix[T number](elements ...Array[T]) Matrix[T] {
@@ -23,4 +28,15 @@ func OnesMatrix[T number](m, n int) Matrix[T] {
 		mat[i] = Ones[T](n)
 	}
 	return mat
+}
+
+func (mat Matrix[T]) String() string {
+	var s strings.Builder
+	for i, arr := range mat {
+		s.WriteString(fmt.Sprintf("%v", arr))
+		if i < len(mat)-1 {
+			s.WriteString("\n")
+		}
+	}
+	return s.String()
 }
