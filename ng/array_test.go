@@ -108,3 +108,10 @@ func TestArrayString(t *testing.T) {
 	arr1 := NewArray(-10, 5.5, 20)
 	assert.Equal(t, expected, arr1.String())
 }
+
+func TestArrayDot(t *testing.T) {
+	expected := 3
+	arr1 := NewArray(1, 3, -5)
+	arr2 := NewArray(4, -2, -1)
+	assert.Equal(t, expected, arr1.Dot(arr2))
+}

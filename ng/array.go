@@ -80,6 +80,15 @@ func (arr Array[T]) MultiplyScalar(scalar T) Array[T] {
 	return arr
 }
 
+func (arr Array[T]) Dot(other Array[T]) T {
+	internal.Assert(len(arr) == len(other), "arrays must have the same length")
+	sum := T(0)
+	for i := 0; i < len(arr); i++ {
+		sum += arr[i] * other[i]
+	}
+	return sum
+}
+
 func (arr Array[T]) String() string {
 	var s strings.Builder
 	for i, el := range arr {
