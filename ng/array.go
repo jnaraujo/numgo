@@ -7,21 +7,21 @@ import (
 	"strings"
 )
 
-type Array[T number] []T
+type Array[T Scalar] []T
 
-func NewArray[T number](elements ...T) Array[T] {
+func NewArray[T Scalar](elements ...T) Array[T] {
 	if len(elements) == 0 {
 		return Array[T]{}
 	}
 	return Array[T](elements)
 }
 
-func Zeroes[T number](n int) Array[T] {
+func Zeroes[T Scalar](n int) Array[T] {
 	return make(Array[T], n)
 }
 
 // Ones creates an array of n elements, all set to 1.
-func Ones[T number](n int) Array[T] {
+func Ones[T Scalar](n int) Array[T] {
 	a := make(Array[T], n)
 	for i := range a {
 		a[i] = 1
@@ -29,8 +29,8 @@ func Ones[T number](n int) Array[T] {
 	return a
 }
 
-// create array with a range of numbers
-func Range[T number](start, end, step T) Array[T] {
+// create array with a range of Scalars
+func Range[T Scalar](start, end, step T) Array[T] {
 	internal.Assert(step != 0, "step cannot be zero")
 	internal.Assert(end != start, "end cannot be equal to start")
 	internal.Assert(end > start, "end must be greater than start")
