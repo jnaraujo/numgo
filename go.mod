@@ -1,4 +1,4 @@
-module numgo
+module github.com/jnaraujo/numgo
 
 go 1.22.3
 

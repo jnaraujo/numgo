@@ -2,9 +2,10 @@ package ng
 
 import (
 	"fmt"
-	"numgo/internal"
 	"slices"
 	"strings"
+
+	"github.com/jnaraujo/numgo/internal"
 )
 
 type Array[T Scalar] []T
