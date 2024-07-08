@@ -79,7 +79,6 @@ func (arr Array[T]) Power(n float64) Array[T] {
 		array[i] = T(math.Pow(float64(arr[i]), n))
 	}
 	return array
-
 }
 
 func (arr Array[T]) Multiply(other Array[T]) Array[T] {
