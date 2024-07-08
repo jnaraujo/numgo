@@ -41,35 +41,35 @@ func Range[T number](start, end, step T) Array[T] {
 	return arr
 }
 
-func Sort[T number](arr Array[T]) Array[T] {
+func (arr Array[T]) Sort() Array[T] {
 	arr = slices.Clone(arr)
 	slices.Sort(arr)
 	return arr
 }
 
-func Concatenate[T number](arr1, arr2 Array[T]) Array[T] {
-	return append(arr1, arr2...)
+func (arr Array[T]) Concat(other Array[T]) Array[T] {
+	return append(arr, other...)
 }
 
-func Sum[T number](arr1, arr2 Array[T]) Array[T] {
-	internal.Assert(len(arr1) == len(arr2), "arrays must have the same length")
-	arr := make(Array[T], len(arr1))
-	for i := 0; i < len(arr); i++ {
-		arr[i] = arr1[i] + arr2[i]
+func (arr Array[T]) Sum(other Array[T]) Array[T] {
+	internal.Assert(len(arr) == len(other), "arrays must have the same length")
+	array := make(Array[T], len(arr))
+	for i := 0; i < len(array); i++ {
+		array[i] = arr[i] + other[i]
 	}
-	return arr
+	return array
 }
 
-func Multiply[T number](arr1, arr2 Array[T]) Array[T] {
-	internal.Assert(len(arr1) == len(arr2), "arrays must have the same length")
-	arr := make(Array[T], len(arr1))
-	for i := 0; i < len(arr); i++ {
-		arr[i] = arr1[i] * arr2[i]
+func (arr Array[T]) Multiply(other Array[T]) Array[T] {
+	internal.Assert(len(arr) == len(other), "arrays must have the same length")
+	array := make(Array[T], len(arr))
+	for i := 0; i < len(array); i++ {
+		array[i] = arr[i] * other[i]
 	}
-	return arr
+	return array
 }
 
-func MultiplyScalar[T number](arr Array[T], scalar T) Array[T] {
+func (arr Array[T]) MultiplyScalar(scalar T) Array[T] {
 	arr = slices.Clone(arr)
 	for i := range arr {
 		arr[i] *= scalar
