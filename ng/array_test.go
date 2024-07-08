@@ -105,3 +105,11 @@ func TestArrayMultiplyScalar(t *testing.T) {
 	assert.NotEqual(t, arr, []float64(expected))
 	assert.Equal(t, expected, []float64(got))
 }
+
+func TestArrayMultiply(t *testing.T) {
+	expected := []float64{-200, 11, 100}
+	arr1 := NewArray(-10, 5.5, 20)
+	arr2 := NewArray[float64](20, 2, 5)
+	got := Multiply(arr1, arr2)
+	assert.Equal(t, expected, []float64(got))
+}

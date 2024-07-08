@@ -60,6 +60,15 @@ func Sum[T number](arr1, arr2 Array[T]) Array[T] {
 	return arr
 }
 
+func Multiply[T number](arr1, arr2 Array[T]) Array[T] {
+	internal.Assert(len(arr1) == len(arr2), "arrays must have the same length")
+	arr := make(Array[T], len(arr1))
+	for i := 0; i < len(arr); i++ {
+		arr[i] = arr1[i] * arr2[i]
+	}
+	return arr
+}
+
 func MultiplyScalar[T number](arr Array[T], scalar T) Array[T] {
 	arr = slices.Clone(arr)
 	for i := range arr {
